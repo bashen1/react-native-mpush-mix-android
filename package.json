@@ -1,0 +1,29 @@
+{
+  "name": "react-native-mpush-mix",
+  "version": "0.1.0",
+  "description": "推送",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "push"
+  ],
+  "repository": "https://github.com/bashen1/react-native-mpush-mix",
+  "author": "bashen1 <maochunjie@gmail.com> (https://github.com/bashen1)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bashen1/react-native-mpush-mix/issues"
+  },
+  "homepage": "https://github.com/bashen1/react-native-mpush-mix#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  }
+}
