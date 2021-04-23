@@ -59,6 +59,8 @@ public class MIPushReceiver extends PushMessageReceiver {
       intent.setClass(context, MpushMixPackage.sReactContext.getCurrentActivity().getClass());
       context.startActivity(intent);
     } else {
+      // 退出后的热启动
+      MpushMixPackage.sMiPushMessage = miPushMessage;
       String packageName = context.getApplicationContext().getPackageName();
       Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(packageName);
       context.startActivity(launchIntent);
