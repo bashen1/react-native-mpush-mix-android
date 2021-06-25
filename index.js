@@ -12,36 +12,12 @@ let listeners = {}
 class PushMix {
   /**
    * 初始化
+   * Android 需要在初始化之前申请
+   * PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE
+   * PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
    */
   static init = () => {
-    if (Platform.OS == 'android') {
-      PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE).then((state) => {
-        if (state) {
-          PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE).then((state) => {
-            if (state) {
-              MpushMixModule.initSDK();
-            } else {
-              PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE).then((granted) => {
-                if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-                  MpushMixModule.initSDK();
-                }
-              });
-            }
-          });
-        } else {
-          PermissionsAndroid.requestMultiple([
-            PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE,
-            PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-          ]).then((granted) => {
-            // if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-            MpushMixModule.initSDK();
-            // }
-          });
-        }
-      });
-    }else{
-      MpushMixModule.initSDK();
-    }
+    MpushMixModule.initSDK();
   }
 
 
